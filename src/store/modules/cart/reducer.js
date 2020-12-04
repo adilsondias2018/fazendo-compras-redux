@@ -1,0 +1,30 @@
+/***
+ * RECEBO O STATE INICIAL DO COMPONENTE
+ * NO REDUX PODEMOS UTILIZAR REGRAS DE NÉGÓGIOS E IMPLEMENTAR AS AÇÕES DEFINIDAS NAS ACTIONS
+ * TAMBÉM FFAZEMOS O SWITE DE OPÕES
+ * CASO NÃO QUEIRAMOS AS REGRAS DE NEGÓCIO NO REDUCER PODEMOS FAZ A LIGAÇÃO COM O MIDLE DISPONÍVEL
+ * E ENVIAR E RECEBER LÓGICAS E REGRAS DE NEGÓCIO ASSIM COMO DADOS DO MIDLE.
+ * AQUI TAMBMÉM EXPORTAMOS ESSE VALORES PARA SEREM CONSOMIDOS POR OUTROS COMPONENTES EM OUTROS PONTOS
+ * DA APLICAÇÃO
+ *
+ */
+
+// DEFININDO O ESTATO INICAL DO COMPONENTE
+const cartReducer = (state = [], action) => {
+  // DEFININOS AS OPÇÕES DE AÇÕES QUE TEREMOS A PARTIR DOS TIPOS DE DISPONÍVEIS NA NOSSA
+  // ACTION
+
+  switch (action.type) {
+    case "@cart/ADD":
+      const { food } = action;
+      return [...state, food];
+
+    case "@cart/REMOVE":
+      const { list } = action;
+      return list;
+
+    default:
+      return state;
+  }
+};
+export default cartReducer;
